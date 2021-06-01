@@ -1,0 +1,20 @@
+{
+  "name": "todoAppDom",
+  "version": "1.0.0",
+  "description": "Todo App With JavaScript DOM",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/msuryaditriputraR/TodoAppDOM.git"
+  },
+  "keywords": [],
+  "author": "DanBo",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^7.27.0",
+    "prettier": "^2.3.0"
+  }
+}
