@@ -1,4 +1,4 @@
-import { addToDo } from './dom';
+import { addToDo } from './dom.js';
 
 document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('form');
