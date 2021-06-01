@@ -1,5 +1,5 @@
 {
-  "name": "todoAppDom",
+  "name": "todo-app-dom",
   "version": "1.0.0",
   "description": "Todo App With JavaScript DOM",
   "main": "index.js",
