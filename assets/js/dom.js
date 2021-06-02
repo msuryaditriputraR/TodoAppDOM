@@ -1,4 +1,5 @@
 const UNCOMPLETED_LIST_TODO_ID = 'todos';
+// const COMPLETED_LIST_TODO_ID = 'completed-todos';
 
 const addToDo = () => {
     const uncompletedListTodo = document.getElementById(
@@ -24,9 +25,29 @@ const makeToDo = (title, timeStamp) => {
 
     const container = document.createElement('div');
     container.classList.add('item', 'shadow');
-    container.append(textContainer);
+    container.append(textContainer, createCheckButton());
 
     return container;
+};
+
+const createButton = (buttonTypeClass, evenListener) => {
+    const button = document.createElement('button');
+    button.classList.add(buttonTypeClass);
+    button.addEventListener('click', event => {
+        evenListener(event);
+    });
+
+    return button;
+};
+
+const addTaskToCompleted = taskElement => {
+    taskElement.remove();
+};
+
+const createCheckButton = () => {
+    return createButton('check-button', event => {
+        addTaskToCompleted(event.target.parentElement);
+    });
 };
 
 export { addToDo };
