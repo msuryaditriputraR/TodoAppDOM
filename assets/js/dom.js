@@ -1,5 +1,5 @@
 const UNCOMPLETED_LIST_TODO_ID = 'todos';
-// const COMPLETED_LIST_TODO_ID = 'completed-todos';
+const COMPLETED_LIST_TODO_ID = 'completed-todos';
 
 const addToDo = () => {
     const uncompletedListTodo = document.getElementById(
@@ -41,6 +41,12 @@ const createButton = (buttonTypeClass, evenListener) => {
 };
 
 const addTaskToCompleted = taskElement => {
+    const taskTitle = taskElement.querySelector('.inner > h2').innerText;
+    const taskTimeStamp = taskElement.querySelector('.inner > p').innerText;
+
+    const newTodo = makeToDo(taskTitle, taskTimeStamp);
+    const listCompleted = document.getElementById(COMPLETED_LIST_TODO_ID);
+    listCompleted.append(newTodo);
     taskElement.remove();
 };
 
