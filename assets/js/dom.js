@@ -1,6 +1,7 @@
 import {
     composeTodoObject,
     findTodo,
+    findTodoIndex,
     todos,
     updateDataToStorage
 } from './data';
@@ -85,7 +86,11 @@ const createCheckButton = () => {
 };
 
 const removeTaskFromCompleted = taskElement => {
+    const todoPosition = findTodoIndex(taskElement[TODO_ITEMID]);
+    todos.splice(todoPosition, 1);
+
     taskElement.remove();
+    updateDataToStorage();
 };
 
 const createTrashButton = () => {
