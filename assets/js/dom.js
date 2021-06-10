@@ -63,7 +63,6 @@ const createButton = (buttonTypeClass, evenListener) => {
 const addTaskToCompleted = taskElement => {
     const taskTitle = taskElement.querySelector('.inner > h2').innerText;
     const taskTimeStamp = taskElement.querySelector('.inner > p').innerText;
-    console.log(taskTitle);
     const newTodo = makeToDo(taskTitle, taskTimeStamp, true);
 
     const todo = findTodo(taskElement[TODO_ITEMID]);
