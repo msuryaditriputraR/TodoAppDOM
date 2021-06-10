@@ -4,7 +4,7 @@ import {
     findTodoIndex,
     todos,
     updateDataToStorage
-} from './data';
+} from './data.js';
 
 const UNCOMPLETED_LIST_TODO_ID = 'todos';
 const COMPLETED_LIST_TODO_ID = 'completed-todos';
