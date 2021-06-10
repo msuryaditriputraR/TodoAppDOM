@@ -12,6 +12,8 @@ document.addEventListener('DOMContentLoaded', () => {
     if (isStorageExist()) loadDataFromStorage();
 });
 
-document.addEventListener('ondatasaved', () => alert('Data Berhasil Disimpan'));
+document.addEventListener('ondatasaved', () =>
+    console.log('Data Berhasil Disimpan')
+);
 
 document.addEventListener('ondataloaded', () => refreshDataFromTodos());
