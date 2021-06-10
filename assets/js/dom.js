@@ -106,8 +106,15 @@ const undoTaskFromCompleted = taskElement => {
     const taskTimeStamp = taskElement.querySelector('.inner > p').innerText;
 
     const newTodo = makeToDo(taskTitle, taskTimeStamp, false);
+
+    const todo = findTodo(taskElement[TODO_ITEMID]);
+    todo.isCompleted = false;
+    newTodo[TODO_ITEMID] = todo.id;
+
     listUncompleted.append(newTodo);
     taskElement.remove();
+
+    updateDataToStorage();
 };
 
 const createUndoButton = () => {
