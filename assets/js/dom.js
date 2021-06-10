@@ -1,5 +1,13 @@
+import {
+    composeTodoObject,
+    findTodo,
+    todos,
+    updateDataToStorage
+} from './data';
+
 const UNCOMPLETED_LIST_TODO_ID = 'todos';
 const COMPLETED_LIST_TODO_ID = 'completed-todos';
+const TODO_ITEMID = 'itemId';
 
 const addToDo = () => {
     const uncompletedListTodo = document.getElementById(
@@ -9,8 +17,13 @@ const addToDo = () => {
     const title = document.getElementById('title').value;
     const timeStamp = document.getElementById('date').value;
 
-    const todo = makeToDo(title, timeStamp);
+    const todo = makeToDo(title, timeStamp, false);
+    const todoObject = composeTodoObject(title, timeStamp, false);
+
+    todo[TODO_ITEMID] = todoObject.id;
+    todos.push(todoObject);
     uncompletedListTodo.append(todo);
+    updateDataToStorage();
 };
 
 const makeToDo = (title, timeStamp, isCompleted) => {
@@ -54,8 +67,15 @@ const addTaskToCompleted = taskElement => {
     const taskTimeStamp = taskElement.querySelector('.inner > p').innerText;
     console.log(taskTitle);
     const newTodo = makeToDo(taskTitle, taskTimeStamp, true);
+
+    const todo = findTodo(taskElement[TODO_ITEMID]);
+    todo.isCompleted = true;
+    newTodo[TODO_ITEMID] = todo.id;
+
     listCompleted.append(newTodo);
     taskElement.remove();
+
+    updateDataToStorage();
 };
 
 const createCheckButton = () => {

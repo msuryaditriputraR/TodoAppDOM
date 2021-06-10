@@ -59,6 +59,7 @@ const findTodoIndex = todoId => {
 };
 
 export {
+    todos,
     loadDataFromStorage,
     composeTodoObject,
     updateDataToStorage,
