@@ -1,4 +1,5 @@
-import { addToDo } from './dom.js';
+import { addToDo, refreshDataFromTodos } from './dom.js';
+import { isStorageExist, loadDataFromStorage } from './data.js';
 
 document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('form');
@@ -7,4 +8,10 @@ document.addEventListener('DOMContentLoaded', () => {
         event.preventDefault();
         addToDo();
     });
+
+    if (isStorageExist()) loadDataFromStorage();
 });
+
+document.addEventListener('ondatasaved', () => alert('Data Berhasil Disimpan'));
+
+document.addEventListener('ondataloaded', () => refreshDataFromTodos());

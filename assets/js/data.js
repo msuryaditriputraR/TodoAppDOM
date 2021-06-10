@@ -64,5 +64,6 @@ export {
     composeTodoObject,
     updateDataToStorage,
     findTodo,
-    findTodoIndex
+    findTodoIndex,
+    isStorageExist
 };
